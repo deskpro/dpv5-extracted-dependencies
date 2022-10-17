@@ -1,0 +1,69 @@
+{
+    "name": "zendframework/zend-uri",
+    "description": "A component that aids in manipulating and validating \u00bb Uniform Resource Identifiers (URIs)",
+    "license": "BSD-3-Clause",
+    "version": "2.7.1",
+    "keywords": [
+        "zf",
+        "zendframework",
+        "uri"
+    ],
+    "support": {
+        "docs": "https://docs.zendframework.com/zend-uri/",
+        "issues": "https://github.com/zendframework/zend-uri/issues",
+        "source": "https://github.com/zendframework/zend-uri",
+        "rss": "https://github.com/zendframework/zend-uri/releases.atom",
+        "chat": "https://zendframework-slack.herokuapp.com",
+        "forum": "https://discourse.zendframework.com/c/questions/components"
+    },
+    "require": {
+        "php": "^7.4|^8.1",
+        "zendframework/zend-escaper": "2.6.1",
+        "zendframework/zend-validator": "2.13.0"
+    },
+    "repositories": {
+        "zendframework/zend-escaper": {
+            "type": "path",
+            "url": "../../zendframework/zend-escaper",
+            "options": {
+                "symlink": true
+            }
+        },
+        "zendframework/zend-validator": {
+            "type": "path",
+            "url": "../../zendframework/zend-validator",
+            "options": {
+                "symlink": true
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Zend\\Uri\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ZendTest\\Uri\\": "test/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.7.x-dev",
+            "dev-develop": "2.8.x-dev"
+        }
+    },
+    "scripts": {
+        "check": [
+            "@cs-check",
+            "@test"
+        ],
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
+        "test": "phpunit --colors=always",
+        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
+    }
+}

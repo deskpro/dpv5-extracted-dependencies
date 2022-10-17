@@ -1,0 +1,90 @@
+{
+    "name": "zendframework/zend-http",
+    "description": "Provides an easy interface for performing Hyper-Text Transfer Protocol (HTTP) requests",
+    "license": "BSD-3-Clause",
+    "version": "2.11.2",
+    "keywords": [
+        "zf",
+        "zend",
+        "zendframework",
+        "http",
+        "HTTP client"
+    ],
+    "support": {
+        "docs": "https://docs.zendframework.com/zend-http/",
+        "issues": "https://github.com/zendframework/zend-http/issues",
+        "source": "https://github.com/zendframework/zend-http",
+        "rss": "https://github.com/zendframework/zend-http/releases.atom",
+        "chat": "https://zendframework-slack.herokuapp.com",
+        "forum": "https://discourse.zendframework.com/c/questions/components"
+    },
+    "require": {
+        "php": "^7.4|^8.1",
+        "zendframework/zend-loader": "2.6.1",
+        "zendframework/zend-stdlib": "3.2.1",
+        "zendframework/zend-uri": "2.7.1",
+        "zendframework/zend-validator": "2.13.0"
+    },
+    "repositories": {
+        "zendframework/zend-loader": {
+            "type": "path",
+            "url": "../../zendframework/zend-loader",
+            "options": {
+                "symlink": true
+            }
+        },
+        "zendframework/zend-stdlib": {
+            "type": "path",
+            "url": "../../zendframework/zend-stdlib",
+            "options": {
+                "symlink": true
+            }
+        },
+        "zendframework/zend-uri": {
+            "type": "path",
+            "url": "../../zendframework/zend-uri",
+            "options": {
+                "symlink": true
+            }
+        },
+        "zendframework/zend-validator": {
+            "type": "path",
+            "url": "../../zendframework/zend-validator",
+            "options": {
+                "symlink": true
+            }
+        }
+    },
+    "suggest": {
+        "paragonie/certainty": "For automated management of cacert.pem"
+    },
+    "autoload": {
+        "psr-4": {
+            "Zend\\Http\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ZendTest\\Http\\": "test/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.11.x-dev",
+            "dev-develop": "2.12.x-dev"
+        }
+    },
+    "scripts": {
+        "check": [
+            "@cs-check",
+            "@test"
+        ],
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
+        "test": "phpunit --colors=always",
+        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "name": "beberlei/doctrineextensions",
+    "type": "library",
+    "description": "A set of extensions to Doctrine 2 that add support for additional query functions available in MySQL and Oracle.",
+    "keywords": ["doctrine", "orm", "database"],
+    "license": "BSD-3-Clause",
+    "version": "1.2.2",
+    "authors": [
+        {"name": "Benjamin Eberlei", "email": "kontakt@beberlei.de"},
+        {"name": "Steve Lacey", "email": "steve@stevelacey.net"}
+    ],
+    "require": {
+        "php": "^7.4|^8.1"
+    },
+    "autoload": {
+        "psr-4": {"DoctrineExtensions\\" : "src/"}
+    },
+    "autoload-dev": {
+        "psr-4": {"DoctrineExtensions\\Tests\\": "tests/"}
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
