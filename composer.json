@@ -14,7 +14,7 @@
         "friendsofsymfony/http-cache": "^1.4.5",
         "doctrine/inflector": "1.*",
         "doctrine/lexer": "1.*",
-        "doctrine/annotations": "1.*",
+        "doctrine/annotations": "1.*"
     },
     "replace": {
         "zendframework/zend-authentication": "2.7.0",
