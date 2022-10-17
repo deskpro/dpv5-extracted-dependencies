@@ -3,23 +3,20 @@
     "type": "library",
     "require": {
         "php": "^7.4|^8.1",
-        "zendframework/zend-authentication": "2.7.0",
-        "zendframework/zend-escaper": "2.6.1",
-        "zendframework/zend-filter": "2.9.2",
-        "zendframework/zend-http": "2.11.2",
-        "zendframework/zend-ldap": "2.10.1",
-        "zendframework/zend-loader": "2.6.1",
-        "zendframework/zend-mail": "2.10.0",
-        "zendframework/zend-mime": "2.7.2",
-        "zendframework/zend-stdlib": "3.2.1",
-        "zendframework/zend-uri": "2.7.1",
-        "zendframework/zend-validator": "2.13.0",
-        "kriswallsmith/buzz": "0.16.1",
-        "friendsofsymfony/oauth-server-bundle": "1.5.2",
-        "friendsofsymfony/http-cache-bundle": "1.3.16",
-        "doctrine/data-fixtures": "1.3.3",
-        "doctrine/common": "2.7.3",
-        "beberlei/doctrineextensions": "1.2.2"
+        "ext-ldap": "*",
+        "ext-iconv": "*",
+        "true/punycode": "2.1.1",
+        "container-interop/container-interop": "1.2.0",
+        "guzzlehttp/psr7": "^1.4",
+        "friendsofsymfony/oauth2-php": "~1.1",
+        "symfony/framework-bundle": "~2.2|~3.0",
+        "symfony/security-bundle": "~2.1|~3.0",
+        "friendsofsymfony/http-cache": "^1.4.5",
+        "doctrine/inflector": "1.*",
+        "doctrine/cache": "1.*",
+        "doctrine/collections": "1.*",
+        "doctrine/lexer": "1.*",
+        "doctrine/annotations": "1.*"
     },
     "replace": {
         "zendframework/zend-authentication": "2.7.0",
@@ -40,125 +37,25 @@
         "doctrine/common": "2.7.3",
         "beberlei/doctrineextensions": "1.2.2"
     },
-    "repositories": {
-        "beberlei/doctrineextensions": {
-            "type": "path",
-            "url": "lib/beberlei/doctrineextensions",
-            "options": {
-                "symlink": true
-            }
-        },
-        "doctrine/common": {
-            "type": "path",
-            "url": "lib/doctrine/common",
-            "options": {
-                "symlink": true
-            }
-        },
-        "doctrine/data-fixtures": {
-            "type": "path",
-            "url": "lib/doctrine/data-fixtures",
-            "options": {
-                "symlink": true
-            }
-        },
-        "friendsofsymfony/http-cache-bundle": {
-            "type": "path",
-            "url": "lib/friendsofsymfony/http-cache-bundle",
-            "options": {
-                "symlink": true
-            }
-        },
-        "friendsofsymfony/oauth-server-bundle": {
-            "type": "path",
-            "url": "lib/friendsofsymfony/oauth-server-bundle",
-            "options": {
-                "symlink": true
-            }
-        },
-        "kriswallsmith/buzz": {
-            "type": "path",
-            "url": "lib/kriswallsmith/buzz",
-            "options": {
-                "symlink": true
-            }
-        },
-        "zendframework/zend-authentication": {
-            "type": "path",
-            "url": "lib/zendframework/zend-authentication",
-            "options": {
-                "symlink": true
-            }
-        },
-        "zendframework/zend-escaper": {
-            "type": "path",
-            "url": "lib/zendframework/zend-escaper",
-            "options": {
-                "symlink": true
-            }
-        },
-        "zendframework/zend-filter": {
-            "type": "path",
-            "url": "lib/zendframework/zend-filter",
-            "options": {
-                "symlink": true
-            }
-        },
-        "zendframework/zend-http": {
-            "type": "path",
-            "url": "lib/zendframework/zend-http",
-            "options": {
-                "symlink": true
-            }
-        },
-        "zendframework/zend-stdlib": {
-            "type": "path",
-            "url": "lib/zendframework/zend-stdlib",
-            "options": {
-                "symlink": true
-            }
-        },
-        "zendframework/zend-ldap": {
-            "type": "path",
-            "url": "lib/zendframework/zend-ldap",
-            "options": {
-                "symlink": true
-            }
-        },
-        "zendframework/zend-loader": {
-            "type": "path",
-            "url": "lib/zendframework/zend-loader",
-            "options": {
-                "symlink": true
-            }
-        },
-        "zendframework/zend-mail": {
-            "type": "path",
-            "url": "lib/zendframework/zend-mail",
-            "options": {
-                "symlink": true
-            }
-        },
-        "zendframework/zend-mime": {
-            "type": "path",
-            "url": "lib/zendframework/zend-mime",
-            "options": {
-                "symlink": true
-            }
-        },
-        "zendframework/zend-uri": {
-            "type": "path",
-            "url": "lib/zendframework/zend-uri",
-            "options": {
-                "symlink": true
-            }
-        },
-        "zendframework/zend-validator": {
-            "type": "path",
-            "url": "lib/zendframework/zend-validator",
-            "options": {
-                "symlink": true
-            }
+    "autoload": {
+        "psr-4": {
+            "Zend\\Authentication\\": "lib/zendframework/zend-authentication/src/",
+            "Zend\\Escaper\\": "lib/zendframework/zend-escaper/src/",
+            "Zend\\Filter\\": "lib/zendframework/zend-filter/src/",
+            "Zend\\Http\\": "lib/zendframework/zend-http/src/",
+            "Zend\\Ldap\\": "lib/zendframework/zend-ldap/src/",
+            "Zend\\Loader\\": "lib/zendframework/zend-loader/src/",
+            "Zend\\Mail\\": "lib/zendframework/zend-mail/src/",
+            "Zend\\Mime\\": "lib/zendframework/zend-mime/src/",
+            "Zend\\Stdlib\\": "lib/zendframework/zend-stdlib/src/",
+            "Zend\\Uri\\": "lib/zendframework/zend-uri/src/",
+            "Zend\\Validator\\": "lib/zendframework/zend-validator/src/",
+            "Buzz\\": "lib/kriswallsmith/buzz/lib/Buzz/",
+            "FOS\\OAuthServerBundle\\": "lib/friendsofsymfony/oauth-server-bundle/",
+            "FOS\\HttpCacheBundle\\": "lib/friendsofsymfony/http-cache-bundle/",
+            "Doctrine\\Common\\DataFixtures\\": "lib/doctrine/data-fixtures/lib/Doctrine/Common/DataFixtures/",
+            "Doctrine\\Common\\": "lib/doctrine/common/lib/Doctrine/Common/",
+            "DoctrineExtensions\\" : "lib/beberlei/doctrineextensions/src/"
         }
     }
 }
