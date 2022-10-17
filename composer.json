@@ -1,6 +1,7 @@
 {
     "name": "deskpro/dpv5-extracted-dependencies",
     "type": "library",
+    "version": "1.0.0",
     "require": {
         "php": "^7.4|^8.1",
         "zendframework/zend-authentication": "2.7.0",
