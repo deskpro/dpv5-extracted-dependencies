@@ -1,0 +1,36 @@
+{
+  "name": "imagine/imagine",
+  "description": "Image processing",
+  "version": "0.5.0",
+  "keywords": [
+    "image manipulation",
+    "image processing",
+    "drawing",
+    "graphics"
+  ],
+  "homepage": "http://imagine.readthedocs.org/",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Bulat Shakirzyanov",
+      "email": "mallluhuct@gmail.com",
+      "homepage": "http://avalanche123.com"
+    }
+  ],
+  "config": {
+    "bin-dir": "bin"
+  },
+  "require": {
+    "php": "^7.4|^8.1"
+  },
+  "suggest": {
+    "ext-gd": "to use the GD implementation",
+    "ext-imagick": "to use the Imagick implementation",
+    "ext-gmagick": "to use the Gmagick implementation"
+  },
+  "autoload": {
+    "psr-0": {
+      "Imagine": "lib/"
+    }
+  }
+}
