@@ -117,8 +117,14 @@ final class Imagine implements ImagineInterface
     {
         $resource = imagecreatefromstring($string);
 
-        if (!$resource instanceof \GdImage && !is_resource($resource)) {
-            throw new InvalidArgumentException('An image could not be created from the given input');
+        if (PHP_VERSION_ID >= 80000) {
+            if (!$resource instanceof \GdImage && !is_resource($resource)) {
+                throw new InvalidArgumentException('An image could not be created from the given input');
+            }
+        } else {
+            if (!is_resource($resource)) {
+                throw new InvalidArgumentException('An image could not be created from the given input');
+            }
         }
 
         return $this->wrap($resource);
