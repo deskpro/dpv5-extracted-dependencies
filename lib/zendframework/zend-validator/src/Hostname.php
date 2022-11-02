@@ -2057,7 +2057,7 @@ class Hostname extends AbstractValidator
                     $regexChars = [0 => '/^[a-z0-9\x2d]{1,63}$/i'];
                     if ($this->getIdnCheck() && isset($this->validIdns[$this->tld])) {
                         if (is_string($this->validIdns[$this->tld])) {
-                            $regexChars += include __DIR__ . 'Hostname.php/' . $this->validIdns[$this->tld];
+                            $regexChars += include __DIR__ . '/' . $this->validIdns[$this->tld];
                         } else {
                             $regexChars += $this->validIdns[$this->tld];
                         }
