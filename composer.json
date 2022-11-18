@@ -18,7 +18,6 @@
         "doctrine/annotations": "1.*"
     },
     "replace": {
-        "zendframework/zend-authentication": "2.7.0",
         "zendframework/zend-escaper": "2.6.1",
         "zendframework/zend-filter": "2.9.2",
         "zendframework/zend-http": "2.11.2",
@@ -41,7 +40,6 @@
             "Imagine": "lib/imagine/imagine/lib/"
         },
         "psr-4": {
-            "Zend\\Authentication\\": "lib/zendframework/zend-authentication/src/",
             "Zend\\Escaper\\": "lib/zendframework/zend-escaper/src/",
             "Zend\\Filter\\": "lib/zendframework/zend-filter/src/",
             "Zend\\Http\\": "lib/zendframework/zend-http/src/",
