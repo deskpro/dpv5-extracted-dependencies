@@ -1531,7 +1531,13 @@ class OAuth2
 
         foreach ($storedUris as $storedUri) {
             if (strcasecmp(substr($inputUri, 0, strlen($storedUri)), $storedUri) === 0) {
-                return true;
+                return parse_url($inputUri, PHP_URL_HOST) === parse_url($storedUri, PHP_URL_HOST) &&
+                    parse_url($inputUri, PHP_URL_PORT) === parse_url($storedUri, PHP_URL_PORT);
+                if (parse_url($inputUri, PHP_URL_HOST) === parse_url($storedUri, PHP_URL_HOST) 
+                    && parse_url($inputUri, PHP_URL_PORT) === parse_url($storedUri, PHP_URL_PORT)
+                ) {
+                    return true;   
+                }
             }
         }
 
