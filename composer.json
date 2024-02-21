@@ -1,6 +1,12 @@
 {
     "name": "deskpro/dpv5-extracted-dependencies",
     "type": "library",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/deskpro/symfony"
+        }
+    ],
     "require": {
         "php": "^7.4|^8.1|^8.2|^8.3",
         "ext-ldap": "*",
@@ -10,7 +16,6 @@
         "container-interop/container-interop": "1.2.0",
         "guzzlehttp/psr7": "^1.4",
         "friendsofsymfony/oauth2-php": "~1.1",
-        "symfony/framework-bundle": "~2.2|~3.0",
         "friendsofsymfony/http-cache": "^1.4.5",
         "doctrine/inflector": "1.*",
         "doctrine/lexer": "1.*",
