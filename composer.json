@@ -56,6 +56,7 @@
             "Buzz\\": "lib/kriswallsmith/buzz/lib/Buzz/",
             "FOS\\OAuthServerBundle\\": "lib/friendsofsymfony/oauth-server-bundle/",
             "FOS\\HttpCacheBundle\\": "lib/friendsofsymfony/http-cache-bundle/",
+            "OAuth2\\": "lib/friendsofsymfony/oauth2-php/lib",
             "Doctrine\\Common\\DataFixtures\\": "lib/doctrine/data-fixtures/lib/Doctrine/Common/DataFixtures/",
             "Doctrine\\Common\\": "lib/doctrine/common/lib/Doctrine/Common/",
             "DoctrineExtensions\\" : "lib/beberlei/doctrineextensions/src/"
