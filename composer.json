@@ -59,7 +59,8 @@
             "OAuth2\\": "lib/friendsofsymfony/oauth2-php/lib",
             "Doctrine\\Common\\DataFixtures\\": "lib/doctrine/data-fixtures/lib/Doctrine/Common/DataFixtures/",
             "Doctrine\\Common\\": "lib/doctrine/common/lib/Doctrine/Common/",
-            "DoctrineExtensions\\" : "lib/beberlei/doctrineextensions/src/"
+            "DoctrineExtensions\\" : "lib/beberlei/doctrineextensions/src/",
+            "": "lib/nesbot/carbon/src/"
         }
     }
 }

@@ -1,0 +1,160 @@
+language: php
+
+cache:
+  apt: true
+  directories:
+    - $HOME/.composer/cache
+
+addons:
+  apt:
+    packages:
+      - language-pack-fr
+
+env:
+  global:
+    - setup=basic
+    - coverage=false
+    - xdebug=true
+    - phpstan=false
+
+sudo: false
+
+before_install:
+  - if [[ $coverage = 'false' && $xdebug = 'true' ]]; then phpenv config-rm xdebug.ini; fi
+
+install:
+  - if [[ $phpstan = 'true' ]]; then travis_retry composer require --dev --no-update phpstan/phpstan; fi
+  - if [[ $setup = 'basic'  ]]; then COMPOSER_MEMORY_LIMIT=-1 travis_retry composer update --prefer-dist --no-interaction --no-suggest; fi
+  - if [[ $setup = 'stable' ]]; then COMPOSER_MEMORY_LIMIT=-1 travis_retry composer update --prefer-dist --no-interaction --no-suggest --prefer-stable; fi
+  - |
+    if [[ $setup = 'lowest' ]]; then
+        composer require --no-update --dev sebastian/comparator:"~1.2.4"
+        COMPOSER_MEMORY_LIMIT=-1 travis_retry composer update --prefer-dist --no-interaction --no-suggest --prefer-stable --prefer-lowest
+    fi
+
+script:
+  - composer phpunit
+  - if [[ $phpstan = 'true' ]]; then composer phpstan; fi
+
+after_success:
+  - if [[ $coverage = 'true' ]]; then bash <(curl -s https://codecov.io/bash); fi
+
+branches:
+  only:
+    - gh-pages
+    - /.*/
+
+matrix:
+  include:
+    - php: 5.3.29
+      dist: precise
+    - php: 5.3
+      dist: precise
+    - php: 5.3
+      dist: precise
+      env: setup=lowest
+    - php: 5.3
+      dist: precise
+      env: setup=stable
+
+    - php: 5.4
+      dist: trusty
+    - php: 5.4
+      dist: trusty
+      env: setup=lowest
+    - php: 5.4
+      dist: trusty
+      env: setup=stable
+
+    - php: 5.5
+      dist: trusty
+    - php: 5.5
+      dist: trusty
+      env: setup=lowest
+    - php: 5.5
+      dist: trusty
+      env: setup=stable
+
+    - php: 5.6.0
+    - php: 5.6.4
+    - php: 5.6.8
+    - php: 5.6.15
+    - php: 5.6.19
+    - php: 5.6.20
+    - php: 5.6.21
+    - php: 5.6.23
+    - php: 5.6.24
+    - php: 5.6.32
+    - php: 5.6
+    - php: 5.6
+      env: setup=lowest
+    - php: 5.6
+      env: setup=stable
+
+    - php: 7.0.0
+    - php: 7.0.4
+    - php: 7.0.5
+    - php: 7.0.6
+    - php: 7.0.8
+    - php: 7.0.9
+    - php: 7.0.12
+    - php: 7.0.14
+    - php: 7.0.17
+    - php: 7.0.18
+    - php: 7.0.19
+    - php: 7.0.25
+    - php: 7.0.23
+    - php: 7.0.22
+    - php: 7.0
+    - php: 7.0
+      env: setup=lowest
+    - php: 7.0
+      env: setup=stable
+
+    - php: 7.1.0
+    - php: 7.1.3
+    - php: 7.1.4
+    - php: 7.1.5
+    - php: 7.1.7
+    - php: 7.1.8
+    - php: 7.1.9
+    - php: 7.1.11
+    - php: 7.1.15
+    - php: 7.1.17
+    - php: 7.1.20
+    - php: 7.1.24
+    - php: 7.1
+    - php: 7.1
+      env: setup=lowest
+    - php: 7.1
+      env: setup=stable
+
+    - php: 7.2.0
+    - php: 7.2.3
+    - php: 7.2.5
+    - php: 7.2.8
+    - php: 7.2
+      env:
+        - coverage=true
+        - phpstan=true
+    - php: 7.2
+      env: setup=lowest
+    - php: 7.2
+      env: setup=stable
+
+    - php: 7.3
+      env: xdebug=false
+    - php: 7.3
+      env:
+        - setup=lowest
+        - xdebug=false
+    - php: 7.3
+      env:
+        - setup=stable
+        - xdebug=false
+
+  fast_finish: true
+
+notifications:
+  slack:
+    secure: mdZBxjp18TYD4hOXKrj2mayveaUBj2fcgiVb1LOv1fiuonzhNwT5I5n795BNGpl1z76I8ZzD3MICbvigXs8QGMBkTnCriSEZNuyQUlAR972q+h02HmKM/j0d90S3tGbPh6PFGh0oo7ZCt0TAlHtNTGL0uyOwzJ26A+Sa5zA8HzN+y44KXTyMYRE/RXDkKB8460W+UFOVXsFw3pdXqeW6CbQY4A8hR8F0veBThfqrE/qXtmQ0MR97uuaDQDbJAiJuVe3DzIOcAdYwuqYbm3sgsomqsXONX7LyrrqXPguNDyM7XwkZUP6t9Nqvxz94HIJkYWASFNgOyysxOYqhgtAG7/xkT77D63IzxcsxLtfNSzOJwaP7xE3YHog082MR0ywdpZpjklmDdPhhiDfGaGRSHGJCqEMcW4QjFibLm3pnvxXoeTyY4Zx0hkCRqDlTYq9IMX6i3fVF4dZ+egOSJrd9BDXlnkyNy2C3z/5Ee6hfVoD53FT4l8zvRc+ip2tFQOzE1O81o8OYHOsF4DfcE0u1B/+ZeYihuFbJ8DMIBv8bUlZ76sQLQD0FAPzeKURDB2lTlUFODUH8ewPEuGbH6Bbao5bFoeWKvC6xTCuanpeU1xwJrzSvzMljqcEyZmOoqST776wCwS/qjY9yh8344VTZYHqGVY/L5DxjTbvSKpyHj2k=
